@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="baidu-site-verification" content="codeva-aq99mug5af" />
+<meta name="description" content="Dongguan Hongtian Yiyuan — Five-Axis Precision CNC Manufacturing. Custom machining of aluminum, titanium, and stainless steel components.">
+<title>鸿添益源 | 五轴精密制造 · Five-Axis Precision CNC</title>
+<style>
+/* ===== RESET ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;background:#fff;color:#374151;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+img{display:block;max-width:100%}
+
+/* ===== LANGUAGE TOGGLE ===== */
+.lang-switch{display:flex;align-items:center;gap:0.3rem;font-size:0.78rem;font-weight:500;letter-spacing:0.04em;cursor:pointer;user-select:none;padding:0.3rem 0.6rem;border-radius:100px;transition:background 0.3s;color:#6b7280}
+.lang-switch:hover{background:rgba(0,0,0,0.04)}
+.lang-switch .active-lang{color:#111827}
+.lang-switch .divider{width:1px;height:14px;background:#d1d5db}
+
+/* Bilingual content visibility */
+[data-lang]{display:none}
+[data-lang].lang-active{display:block}
+[data-lang].lang-inline.lang-active{display:inline}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;transition:background 0.4s,box-shadow 0.4s,padding 0.4s}
+.nav.scrolled{background:rgba(255,255,255,0.93);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:0.85rem 2rem;box-shadow:0 1px 0 rgba(0,0,0,0.06)}
+.nav-left{display:flex;align-items:center;gap:2rem}
+.nav-logo{display:flex;align-items:center;gap:0.5rem}
+.nav-logo img{height:2.2rem;width:auto}
+.nav-logo-text{font-size:1.1rem;font-weight:600;color:#111827;letter-spacing:0.03em}
+.nav-logo-text span{color:#b8860b;font-weight:400}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-size:0.84rem;color:#6b7280;transition:color 0.3s;letter-spacing:0.02em}
+.nav-links a:hover{color:#111827}
+.nav-cta{background:#b8860b;color:#fff!important;padding:0.5rem 1.3rem;border-radius:100px;font-size:0.82rem;font-weight:500;letter-spacing:0.03em;transition:background 0.3s,transform 0.3s!important}
+.nav-cta:hover{background:#a0750a!important;transform:translateY(-1px)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:1001}
+.nav-toggle span{display:block;width:24px;height:1.5px;background:#374151;transition:transform 0.3s,opacity 0.3s}
+
+/* ===== HERO ===== */
+.hero{display:flex;align-items:center;min-height:90vh;padding:7rem 2rem 4rem;background:#fafafa}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:flex;align-items:center;gap:5rem}
+.hero-text{flex:1}
+.hero-image{flex:1;display:flex;justify-content:center}
+.hero-image img{width:100%;max-width:540px;border-radius:1.5rem;box-shadow:0 25px 80px rgba(0,0,0,0.1)}
+.hero-badge{display:inline-block;background:#fef3c7;color:#92400e;font-size:0.78rem;padding:0.35rem 1rem;border-radius:100px;letter-spacing:0.06em;margin-bottom:1.5rem;font-weight:500}
+.hero h1{font-size:clamp(2.8rem,5vw,4.8rem);font-weight:600;color:#111827;line-height:1.12;letter-spacing:-0.03em;margin-bottom:1rem}
+.hero h1 em{font-style:normal;color:#b8860b}
+.hero-sub{font-size:1.1rem;color:#6b7280;line-height:1.8;margin-bottom:2.5rem;max-width:440px}
+.hero-metrics{display:flex;gap:3rem}
+.hero-metric-val{font-size:2.4rem;font-weight:600;color:#111827;letter-spacing:-0.02em;line-height:1}
+.hero-metric-unit{font-size:0.9rem;color:#9ca3af;font-weight:400}
+.hero-metric-label{font-size:0.8rem;color:#9ca3af;margin-top:0.3rem}
+
+/* ===== SECTION ===== */
+.section{padding:6rem 2rem}
+.section-gray{background:#f5f5f7}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:4rem}
+.section-tag{font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:#9ca3af;margin-bottom:0.8rem}
+.section-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:#111827;line-height:1.15;margin-bottom:1rem;letter-spacing:-0.02em}
+.section-title em{font-style:normal;color:#b8860b}
+.section-desc{font-size:1rem;color:#6b7280;max-width:600px;margin:0 auto;line-height:1.7}
+
+/* ===== CAPABILITIES ===== */
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.cap-card{background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2.2rem 1.8rem;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
+.cap-card:hover{border-color:#b8860b40;transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.06)}
+.cap-icon{width:100%;height:160px;border-radius:0.6rem;overflow:hidden;margin-bottom:1.2rem;background:#f3f4f6}
+.cap-icon img{width:100%;height:100%;object-fit:cover}
+.cap-card h3{font-size:1.15rem;font-weight:600;color:#111827;margin-bottom:0.5rem}
+.cap-card p{font-size:0.9rem;color:#6b7280;line-height:1.65}
+.cap-card h3{font-size:1.05rem;font-weight:600;color:#111827;margin-bottom:0.5rem}
+.cap-card p{font-size:0.88rem;color:#6b7280;line-height:1.6}
+
+/* ===== PRODUCT GRID ===== */
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.product-card{background:#fff;border:1px solid #e5e7eb;border-radius:1rem;overflow:hidden;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
+.product-card:hover{border-color:#b8860b40;transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.06)}
+.product-card img{width:100%;height:200px;object-fit:cover}
+.product-card .product-body{padding:1.3rem 1.2rem}
+.product-card h3{font-size:0.95rem;font-weight:600;color:#111827;margin-bottom:0.4rem}
+.product-card p{font-size:0.8rem;color:#6b7280;line-height:1.55}
+
+/* ===== EQUIPMENT ===== */
+.equip-row{display:flex;gap:1.25rem;align-items:stretch}
+.equip-main{flex:1;background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2.5rem;display:flex;gap:2rem;align-items:center}
+.equip-main img{width:280px;height:200px;object-fit:cover;border-radius:0.6rem}
+.equip-side{width:340px;display:flex;flex-direction:column;gap:1.25rem}
+.equip-side-item{flex:1;background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1.5rem;display:flex;gap:1rem;align-items:center}
+.equip-side-item img{width:80px;height:80px;object-fit:cover;border-radius:0.5rem}
+.equip-side-item h4{font-size:0.9rem;font-weight:600;color:#111827}
+.equip-side-item p{font-size:0.78rem;color:#6b7280;margin-top:0.2rem}
+.equip-info h3{font-size:1.4rem;font-weight:600;color:#111827;margin-bottom:0.6rem}
+.equip-info .equip-en{font-size:0.9rem;color:#9ca3af;margin-bottom:0.8rem}
+.equip-info p{font-size:0.9rem;color:#6b7280;line-height:1.7}
+
+/* ===== INDUSTRIES ===== */
+.industry-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
+.industry-item{text-align:center;padding:1.8rem 0.8rem;background:#fff;border:1px solid #e5e7eb;border-radius:0.8rem;transition:transform 0.3s,box-shadow 0.3s}
+.industry-item:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,0.05)}
+.industry-icon{font-size:2.4rem;margin-bottom:0.8rem}
+.industry-item h4{font-size:0.92rem;font-weight:600;color:#111827}
+.industry-item .en{font-size:0.72rem;color:#9ca3af;margin-top:0.2rem}
+
+/* ===== WORKSHOP ===== */
+.workshop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.workshop-item{border-radius:0.8rem;overflow:hidden;aspect-ratio:4/3;background:#e5e7eb}
+.workshop-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s}
+.workshop-item:hover img{transform:scale(1.04)}
+
+/* ===== SERVICES ===== */
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.service-card{background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:2rem 1.5rem;transition:border-color 0.3s,transform 0.3s}
+.service-card:hover{border-color:#b8860b40;transform:translateY(-3px)}
+/* ===== SERVICE NUMBERS ===== */
+.service-num{font-size:3.8rem;font-weight:800;color:#fef3c7;line-height:1;margin-bottom:0.6rem;font-family:'Helvetica Neue',Arial,sans-serif;-webkit-text-stroke:2px #b8860b}
+.service-card h3{font-size:1.05rem;font-weight:600;color:#111827;margin-bottom:0.5rem}
+.service-card p{font-size:0.85rem;color:#6b7280;line-height:1.6}
+
+/* ===== TIMELINE ===== */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:#e5e7eb}
+.timeline-item{position:relative;margin-bottom:2.5rem;padding-left:2rem}
+.timeline-item::before{content:'';position:absolute;left:-2.45rem;top:0.4rem;width:12px;height:12px;border-radius:50%;background:#b8860b;border:3px solid #fef3c7}
+.timeline-item h4{font-size:1.35rem;font-weight:600;color:#111827;margin-bottom:0.4rem}
+.timeline-item .phase{font-size:0.85rem;color:#b8860b;font-weight:600;letter-spacing:0.08em;margin-bottom:0.6rem}
+.timeline-item p{font-size:0.95rem;color:#6b7280;line-height:1.8}
+
+/* ===== CONTACT ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-info h3{font-size:2rem;font-weight:600;color:#111827;margin-bottom:1rem}
+.contact-info .sub{font-size:1rem;color:#6b7280;margin-bottom:2rem}
+.contact-row{display:flex;gap:0.8rem;margin-bottom:1rem;font-size:0.92rem;color:#6b7280;align-items:center}
+.contact-row .icon{font-size:1.1rem;min-width:1.5rem}
+.contact-row strong{color:#374151;font-weight:500}
+.contact-form{display:flex;flex-direction:column;gap:0.9rem}
+.contact-form input,.contact-form textarea{width:100%;padding:0.85rem 1.1rem;background:#f5f5f7;border:1px solid #e5e7eb;border-radius:0.6rem;font-size:0.9rem;font-family:inherit;resize:vertical;transition:border-color 0.3s;color:#111827}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:#b8860b}
+.contact-form button{background:#b8860b;color:#fff;border:none;padding:0.9rem 2rem;border-radius:100px;font-size:0.92rem;font-weight:600;cursor:pointer;letter-spacing:0.03em;transition:background 0.3s}
+.contact-form button:hover{background:#a0750a}
+
+/* ===== FOOTER ===== */
+.footer{background:#111827;padding:3rem 2rem;color:#9ca3af}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-size:1rem;font-weight:600;color:#e5e7eb}
+.footer-logo span{color:#d4a853}
+.footer-copy{font-size:0.8rem;color:#6b7280}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(25px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .hero-inner{flex-direction:column-reverse;gap:3rem}
+  .hero-image img{max-width:100%}
+  .cap-grid{grid-template-columns:1fr 1fr}
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  .equip-row{flex-direction:column}
+  .equip-side{width:100%;flex-direction:row}
+  .equip-side-item{flex:1}
+  .industry-grid{grid-template-columns:repeat(3,1fr)}
+  .workshop-grid{grid-template-columns:1fr 1fr}
+  .service-grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media (max-width: 768px) {
+  .nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:#fff;flex-direction:column;padding:6rem 2rem 2rem;gap:1.5rem;transition:right 0.4s;box-shadow:-2px 0 20px rgba(0,0,0,0.08);z-index:1000}
+  .nav-links.open{right:0}
+  .nav-links a{font-size:1rem;color:#374151}
+  .nav-toggle{display:flex}
+  .hero{padding:5rem 1.5rem 3rem;min-height:auto}
+  .hero h1{font-size:2rem}
+  .hero-metrics{gap:2rem}
+  .hero-metric-val{font-size:2rem}
+  .cap-grid{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:1fr 1fr}
+  .equip-main{flex-direction:column}
+  .equip-main img{width:100%;height:180px}
+  .equip-side{flex-direction:column}
+  .industry-grid{grid-template-columns:repeat(2,1fr)}
+  .workshop-grid{grid-template-columns:1fr}
+  .service-grid{grid-template-columns:1fr}
+  .section{padding:4rem 1.5rem}
+  .section-title{font-size:1.6rem}
+  .contact-grid{grid-template-columns:1fr;gap:2rem}
+  .timeline{padding-left:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-left">
+    <a href="#" class="nav-logo">
+      <img src="WPS图片(1).png" alt="鸿添益源">
+      <span class="nav-logo-text">鸿添益源<span>·</span>精密</span>
+    </a>
+    <div class="lang-switch" id="langToggle" title="Switch Language">
+      <span class="active-lang" data-lang-btn="zh">中</span>
+      <span class="divider"></span>
+      <span data-lang-btn="en">EN</span>
+    </div>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="#capabilities" data-nav-close><span data-lang="zh" class="lang-active">加工能力</span><span data-lang="en">Capabilities</span></a>
+    <a href="#equipment" data-nav-close><span data-lang="zh" class="lang-active">核心设备</span><span data-lang="en">Equipment</span></a>
+    <a href="#workshop" data-nav-close><span data-lang="zh" class="lang-active">车间实景</span><span data-lang="en">Workshop</span></a>
+    <a href="#industries" data-nav-close><span data-lang="zh" class="lang-active">应用领域</span><span data-lang="en">Industries</span></a>
+    <a href="#services" data-nav-close><span data-lang="zh" class="lang-active">增值服务</span><span data-lang="en">Services</span></a>
+    <a href="#contact" class="nav-cta" data-nav-close><span data-lang="zh" class="lang-active">询价咨询</span><span data-lang="en">Inquire</span></a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="菜单"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner reveal">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span data-lang="zh" class="lang-active">ISO 9001 · 专业精密制造</span>
+        <span data-lang="en">ISO 9001 · Precision Manufacturing</span>
+      </div>
+      <h1>
+        <span data-lang="zh" class="lang-active">五轴精密加工<em>定义精度</em></span>
+        <span data-lang="en">Five-Axis Precision<em>Redefining Accuracy</em></span>
+      </h1>
+      <p class="hero-sub">
+        <span data-lang="zh" class="lang-active">东莞市鸿添益源五轴精密制造有限公司，专注铝合金、钛合金、不锈钢高精度非标零部件 CNC 加工。以品质、服务、效率为核心，服务全球客户。</span>
+        <span data-lang="en">Dongguan Hongtian Yiyuan Five-Axis Precision Manufacturing Co., Ltd. Specializing in high-precision CNC machining of aluminum, titanium & stainless steel custom components. Built on Quality, Service, and Efficiency.</span>
+      </p>
+      <div class="hero-metrics">
+        <div>
+          <div class="hero-metric-val">±0.003<span class="hero-metric-unit">mm</span></div>
+          <div class="hero-metric-label"><span data-lang="zh" class="lang-active">加工精度</span><span data-lang="en">Precision</span></div>
+        </div>
+        <div>
+          <div class="hero-metric-val">5<span class="hero-metric-unit">-Axis</span></div>
+          <div class="hero-metric-label"><span data-lang="zh" class="lang-active">联动加工</span><span data-lang="en">Simultaneous</span></div>
+        </div>
+        <div>
+          <div class="hero-metric-val">2022</div>
+          <div class="hero-metric-label"><span data-lang="zh" class="lang-active">成立年份</span><span data-lang="en">Est.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="%E9%B8%BF%E6%B7%BB%E5%B0%81%E9%9D%A2.jpg" alt="鸿添益源精密制造">
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAPABILITIES ===== -->
+<section class="section section-gray" id="capabilities">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag"><span data-lang="zh" class="lang-active">加工能力</span><span data-lang="en">Capabilities</span></div>
+      <div class="section-title"><span data-lang="zh" class="lang-active">复杂几何<em>一体成型</em></span><span data-lang="en">Complex Geometry, <em>Single Setup</em></span></div>
+      <p class="section-desc"><span data-lang="zh" class="lang-active">五轴联动一次装夹完成多面加工，消除重复定位误差，确保形位公差。覆盖铝合金异形件、精密模具等高难度定制订单。</span><span data-lang="en">Single-setup multi-face machining eliminates repositioning errors. Covering aluminum irregular parts, precision molds, and complex custom orders.</span></p>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card reveal">
+        <div class="cap-icon"><img src="%E4%BA%94%E8%BD%B4%E9%93%A3%E5%89%8A.png" alt="五轴联动铣削" loading="lazy"></div>
+        <h3><span data-lang="zh" class="lang-active">五轴联动铣削</span><span data-lang="en">5-Axis Simultaneous Milling</span></h3>
+        <p><span data-lang="zh" class="lang-active">大型五轴联动加工中心，复杂曲面高精度精加工。一次装夹多面成型，稳定保障产品精度与表面品质。</span><span data-lang="en">Large 5-axis simultaneous machining centers for high-precision complex curved surface finishing with stable accuracy and surface quality.</span></p>
+      </div>
+      <div class="cap-card reveal">
+        <div class="cap-icon"><img src="%E8%BD%A6%E9%93%A3%E5%A4%8D%E5%90%88.png" alt="车铣复合加工" loading="lazy"></div>
+        <h3><span data-lang="zh" class="lang-active">车铣复合加工</span><span data-lang="en">Turn-Mill Machining</span></h3>
+        <p><span data-lang="zh" class="lang-active">进口马扎克车铣复合设备，集成车削、铣削、钻攻多道工序。一次装夹全流程加工，大幅提升回转类零件效率。</span><span data-lang="en">Imported Mazak turn-mill machines integrating turning, milling and tapping in one setup for rotary parts.</span></p>
+      </div>
+      <div class="cap-card reveal">
+        <div class="cap-icon"><img src="%E4%B8%89%E5%9D%90%E6%A0%87.png" alt="精密检测" loading="lazy"></div>
+        <h3><span data-lang="zh" class="lang-active">精密检测</span><span data-lang="en">Precision Inspection</span></h3>
+        <p><span data-lang="zh" class="lang-active">力彬三次元 + 瑞士 TESA 测高仪，精准检测三维尺寸、形位公差与复杂曲面，全维度把控加工精度。</span><span data-lang="en">Libin CMM + Swiss TESA height gauges for 3D dimensions, geometric tolerances and complex surface inspection.</span></p>
+      </div>
+      <div class="cap-card reveal">
+        <div class="cap-icon"><img src="%E5%88%80%E5%85%B7%E7%AE%A1%E7%90%86.jpg" alt="标准化刀具管理" loading="lazy"></div>
+        <h3><span data-lang="zh" class="lang-active">标准化刀具管理</span><span data-lang="en">Standardized Tooling</span></h3>
+        <p><span data-lang="zh" class="lang-active">全系列 CNC 切削刀具与配套刀柄体系，涵盖硬质合金铣刀、高速钻头、精加工刀杆，全面适配五轴设备。</span><span data-lang="en">Full range of CNC cutting tools with matching holders — carbide mills, high-speed drills, finishing bars for 5-axis equipment.</span></p>
+      </div>
+      <div class="cap-card reveal">
+        <div class="cap-icon"><img src="%E7%94%9F%E4%BA%A7%E7%AE%A1%E6%8E%A7.png" alt="生产管控" loading="lazy"></div>
+        <h3><span data-lang="zh" class="lang-active">生产管控</span><span data-lang="en">Production Control</span></h3>
+        <p><span data-lang="zh" class="lang-active">弹性丝圈防护+蓝色胶框分色管理+安全间隙周转，杜绝磕碰划伤。首检巡检记录规范存档，全程可追溯。</span><span data-lang="en">Protective mats, color-coded bins, safety-gap storage. First-article & patrol inspection records for full traceability.</span></p>
+      </div>
+      <div class="cap-card reveal">
+        <div class="cap-icon"><img src="%E5%8D%8F%E5%90%8C%E7%A0%94%E5%8F%91.png" alt="协同研发与快速响应" loading="lazy"></div>
+        <h3><span data-lang="zh" class="lang-active">协同研发 & 快速响应</span><span data-lang="en">Co-R&D & Rapid Response</span></h3>
+        <p><span data-lang="zh" class="lang-active">CAD 建模到快速打样全流程协同。7×24 小时线上技术对接，快速报价，及时同步图纸修改需求。</span><span data-lang="en">Full-process collaboration from CAD to rapid prototyping. 24/7 online technical support with instant quotation.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EQUIPMENT ===== -->
+<section class="section" id="equipment">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag"><span data-lang="zh" class="lang-active">核心设备</span><span data-lang="en">Core Equipment</span></div>
+      <div class="section-title"><span data-lang="zh" class="lang-active">进口<em>精密</em>机群</span><span data-lang="en">Imported <em>Precision</em> Machinery</span></div>
+      <p class="section-desc"><span data-lang="zh" class="lang-active">马扎克五轴联动加工中心 + 车铣复合设备，全员进口，制程数控化，精度可追溯。</span><span data-lang="en">Mazak 5-axis simultaneous machining centers & turn-mill equipment. Fully imported, CNC-controlled, traceable precision.</span></p>
+    </div>
+    <div class="equip-row reveal">
+      <div class="equip-main">
+        <img src="e8dee1560520010b594d7c37ce94e4df.jpg" alt="5-Axis CNC Workshop">
+        <div class="equip-info">
+          <h3><span data-lang="zh" class="lang-active">五轴联动加工中心</span><span data-lang="en">5-Axis Simultaneous Machining Center</span></h3>
+          <p class="equip-en">MAZAK 5-Axis Simultaneous</p>
+          <p><span data-lang="zh" class="lang-active">大型五轴联动，实现复杂曲面高精度精加工。适配铝合金异形件、精密模具等高难度定制订单，一次装夹完成多面加工。</span><span data-lang="en">Large 5-axis simultaneous machining for complex curved surfaces. Handles aluminum irregular parts and precision molds in one setup.</span></p>
+        </div>
+      </div>
+      <div class="equip-side">
+        <div class="equip-side-item">
+          <div class="equip-icon-wrap">🔩</div>
+          <div>
+            <h4><span data-lang="zh" class="lang-active">马扎克车铣复合</span><span data-lang="en">Mazak Turn-Mill</span></h4>
+            <p><span data-lang="zh" class="lang-active">车、铣、钻、攻丝一次完成</span><span data-lang="en">Turning, milling, drilling, tapping in one</span></p>
+          </div>
+        </div>
+        <div class="equip-side-item">
+          <div class="equip-icon-wrap">📏</div>
+          <div>
+            <h4><span data-lang="zh" class="lang-active">精密测量仪器</span><span data-lang="en">Precision Measurement</span></h4>
+            <p><span data-lang="zh" class="lang-active">力彬三次元 + 瑞士TESA测高仪</span><span data-lang="en">Libin CMM + Swiss TESA Gauge</span></p>
+          </div>
+        </div>
+        <div class="equip-side-item">
+          <div class="equip-icon-wrap">🔧</div>
+          <div>
+            <h4><span data-lang="zh" class="lang-active">标准化刀具房</span><span data-lang="en">Standardized Tool Room</span></h4>
+            <p><span data-lang="zh" class="lang-active">全系列 CNC 刀具 + 专用换刀区</span><span data-lang="en">Full CNC tooling + dedicated setup area</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WORKSHOP ===== -->
+<section class="section section-gray" id="workshop">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag"><span data-lang="zh" class="lang-active">车间实景</span><span data-lang="en">Workshop</span></div>
+      <div class="section-title"><span data-lang="zh" class="lang-active">世界级<em>生产环境</em></span><span data-lang="en">World-Class <em>Facility</em></span></div>
+      <p class="section-desc"><span data-lang="zh" class="lang-active">整洁规范、专业有序的生产环境，专为优化生产流程、提升产能效率规划建造。6S 现场管理，定期设备校准。</span><span data-lang="en">Clean, structured and professional environment built to streamline productivity. 6S management with regular equipment calibration.</span></p>
+    </div>
+    <div class="workshop-grid">
+      <div class="workshop-item reveal"><img src="38bb0e25cba0efe7d02059faeb35b6d2.jpg" alt="Workshop" loading="lazy"></div>
+      <div class="workshop-item reveal"><img src="ae958b527682ec136b481a9a5882ebf3.jpg" alt="Workshop" loading="lazy"></div>
+      <div class="workshop-item reveal"><img src="b21c77ad8fd6d31a675122b5fd84061d.jpg" alt="Workshop" loading="lazy"></div>
+      <div class="workshop-item reveal"><img src="be7d21ebcf1d29da9118878edda16ab7.jpg" alt="Workshop" loading="lazy"></div>
+      <div class="workshop-item reveal"><img src="c4332eb84f0977595a975f20ee5cf2b6.jpg" alt="Workshop" loading="lazy"></div>
+      <div class="workshop-item reveal"><img src="063f2d91b425109610e4f4d71593cbe5.jpg" alt="Workshop" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INDUSTRIES ===== -->
+<section class="section" id="industries">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag"><span data-lang="zh" class="lang-active">应用领域</span><span data-lang="en">Industries We Serve</span></div>
+      <div class="section-title"><span data-lang="zh" class="lang-active">跨行业精密<em>零部件</em>制造</span><span data-lang="en">Cross-Industry <em>Precision</em> Manufacturing</span></div>
+      <p class="section-desc"><span data-lang="zh" class="lang-active">我们为多个行业批量交付铝合金、钣金及不锈钢精密零件，稳定出货保障。</span><span data-lang="en">Mass production of precision parts in aluminum alloy, sheet metal & stainless steel with stable bulk delivery.</span></p>
+    </div>
+    <div class="industry-grid reveal">
+      <div class="industry-item"><div class="industry-icon">🚗</div><h4><span data-lang="zh" class="lang-active">汽车</span><span data-lang="en">Automotive</span></h4></div>
+      <div class="industry-item"><div class="industry-icon">✈️</div><h4><span data-lang="zh" class="lang-active">航空航天</span><span data-lang="en">Aerospace</span></h4></div>
+      <div class="industry-item"><div class="industry-icon">🤖</div><h4><span data-lang="zh" class="lang-active">人形机器人</span><span data-lang="en">Humanoid Robot</span></h4></div>
+      <div class="industry-item"><div class="industry-icon">🛸</div><h4><span data-lang="zh" class="lang-active">无人机</span><span data-lang="en">UAV / Drone</span></h4></div>
+      <div class="industry-item"><div class="industry-icon">🏥</div><h4><span data-lang="zh" class="lang-active">医疗器械</span><span data-lang="en">Medical</span></h4></div>
+      <div class="industry-item"><div class="industry-icon">🌐</div><h4><span data-lang="zh" class="lang-active">外贸出口</span><span data-lang="en">Foreign Trade</span></h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCT CASES ===== -->
+<section class="section section-gray" id="cases">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag"><span data-lang="zh" class="lang-active">产品案例</span><span data-lang="en">Product Cases</span></div>
+      <div class="section-title"><span data-lang="zh" class="lang-active">精密零件<em>实样展示</em></span><span data-lang="en">Precision Parts <em>Showcase</em></span></div>
+    </div>
+    <div class="product-grid">
+      <div class="product-card reveal">
+        <img src="发动机缸体.jpg" alt="发动机缸体" loading="lazy">
+        <div class="product-body"><h3><span data-lang="zh" class="lang-active">发动机缸体</span><span data-lang="en">Engine Cylinder Block</span></h3><p><span data-lang="zh" class="lang-active">铝合金五轴加工，缸孔圆度 ±0.005mm</span><span data-lang="en">Aluminum 5-axis, bore roundness ±0.005mm</span></p></div>
+      </div>
+      <div class="product-card reveal">
+        <img src="增压器叶轮涡轮.jpg" alt="增压器叶轮" loading="lazy">
+        <div class="product-body"><h3><span data-lang="zh" class="lang-active">增压器叶轮</span><span data-lang="en">Turbocharger Impeller</span></h3><p><span data-lang="zh" class="lang-active">钛合金五轴联动，轮廓度 ±0.03mm</span><span data-lang="en">Titanium 5-axis, profile ±0.03mm</span></p></div>
+      </div>
+      <div class="product-card reveal">
+        <img src="制动盘转子.jpg" alt="制动盘转子" loading="lazy">
+        <div class="product-body"><h3><span data-lang="zh" class="lang-active">制动盘转子</span><span data-lang="en">Brake Disc Rotor</span></h3><p><span data-lang="zh" class="lang-active">CNC 精密加工，跳动 0.015mm</span><span data-lang="en">CNC precision, runout 0.015mm</span></p></div>
+      </div>
+      <div class="product-card reveal">
+        <img src="减震固定板.jpg" alt="减震固定板" loading="lazy">
+        <div class="product-body"><h3><span data-lang="zh" class="lang-active">悬架减震固定板</span><span data-lang="en">Suspension Mount Plate</span></h3><p><span data-lang="zh" class="lang-active">7075 铝 CNC，位置度 ±0.02mm</span><span data-lang="en">7075 Al, position ±0.02mm</span></p></div>
+      </div>
+      <div class="product-card reveal">
+        <img src="铝合金泵头外壳.jpg" alt="铝合金泵头壳体" loading="lazy">
+        <div class="product-body"><h3><span data-lang="zh" class="lang-active">铝合金泵头壳体</span><span data-lang="en">Aluminum Pump Housing</span></h3><p><span data-lang="zh" class="lang-active">复杂内腔一次成型，2.5MPa 零泄漏</span><span data-lang="en">Complex cavity, 2.5MPa zero-leak</span></p></div>
+      </div>
+      <div class="product-card reveal">
+        <img src="CNC五轴铣削精密零件1.jpg" alt="五轴精密零件" loading="lazy">
+        <div class="product-body"><h3><span data-lang="zh" class="lang-active">五轴精密结构件</span><span data-lang="en">5-Axis Structural Part</span></h3><p><span data-lang="zh" class="lang-active">一次装夹全工序，公差 ±0.01mm</span><span data-lang="en">Single-setup, tolerance ±0.01mm</span></p></div>
+      </div>
+      <div class="product-card reveal">
+        <img src="合金油底壳 链外壳.jpg" alt="合金油底壳" loading="lazy">
+        <div class="product-body"><h3><span data-lang="zh" class="lang-active">合金油底壳 / 链外壳</span><span data-lang="en">Alloy Oil Pan & Chain Housing</span></h3><p><span data-lang="zh" class="lang-active">复杂壳体五轴加工，密封面精密</span><span data-lang="en">Complex housing 5-axis, precision seal faces</span></p></div>
+      </div>
+      <div class="product-card reveal">
+        <img src="连杆套件.jpg" alt="连杆套件" loading="lazy">
+        <div class="product-body"><h3><span data-lang="zh" class="lang-active">连杆套件</span><span data-lang="en">Connecting Rod Kit</span></h3><p><span data-lang="zh" class="lang-active">高精度孔距加工，批量一致性保障</span><span data-lang="en">High-precision bore spacing, batch consistency</span></p></div>
+      </div>
+      <div class="product-card reveal">
+        <img src="水泵缸体精密件.jpg" alt="水泵缸体" loading="lazy">
+        <div class="product-body"><h3><span data-lang="zh" class="lang-active">水泵缸体精密件</span><span data-lang="en">Water Pump Cylinder</span></h3><p><span data-lang="zh" class="lang-active">精密镗铣加工，同轴度保障</span><span data-lang="en">Precision boring & milling, coaxiality guaranteed</span></p></div>
+      </div>
+      <div class="product-card reveal">
+        <img src="涡轮增压器筒 盒.jpg" alt="涡轮增压器筒" loading="lazy">
+        <div class="product-body"><h3><span data-lang="zh" class="lang-active">涡轮增压器筒/盒</span><span data-lang="en">Turbocharger Housing</span></h3><p><span data-lang="zh" class="lang-active">耐高温合金精密加工</span><span data-lang="en">High-temp alloy precision machining</span></p></div>
+      </div>
+      <div class="product-card reveal">
+        <img src="五轴铝铃外壳CNC定制OEM.jpg" alt="五轴铝铃外壳" loading="lazy">
+        <div class="product-body"><h3><span data-lang="zh" class="lang-active">五轴铝铃外壳</span><span data-lang="en">5-Axis Bell Housing</span></h3><p><span data-lang="zh" class="lang-active">铝合金五轴定制，OEM 配套</span><span data-lang="en">Aluminum 5-axis custom, OEM supply</span></p></div>
+      </div>
+      <div class="product-card reveal">
+        <img src="非标数控五金精密配件 OEM.jpg" alt="非标数控精密配件" loading="lazy">
+        <div class="product-body"><h3><span data-lang="zh" class="lang-active">非标数控精密配件</span><span data-lang="en">Custom CNC Precision Parts</span></h3><p><span data-lang="zh" class="lang-active">按图定制，多品种小批量快交付</span><span data-lang="en">Drawing-based, multi-variety small-batch rapid delivery</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUE-ADDED SERVICES ===== -->
+<section class="section" id="services">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag"><span data-lang="zh" class="lang-active">增值服务</span><span data-lang="en">Value-Added Services</span></div>
+      <div class="section-title"><span data-lang="zh" class="lang-active">端到端制造<em>价值创造</em></span><span data-lang="en">End-to-End <em>Value Creation</em></span></div>
+    </div>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <h3><span data-lang="zh" class="lang-active">工艺优化</span><span data-lang="en">Process Optimization</span></h3>
+        <p><span data-lang="zh" class="lang-active">针对铝合金、不锈钢、钣金件优化加工方案，减少材料损耗，缩短生产周期。</span><span data-lang="en">Optimizing machining solutions for aluminum, stainless steel & sheet metal parts to cut waste and shorten cycles.</span></p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <h3><span data-lang="zh" class="lang-active">协同研发</span><span data-lang="en">Collaborative R&D</span></h3>
+        <p><span data-lang="zh" class="lang-active">与客户全流程协同开发，覆盖 CAD 建模至快速样品试制。</span><span data-lang="en">Full-process collaboration from CAD modeling to rapid prototype manufacturing.</span></p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <h3><span data-lang="zh" class="lang-active">定制包装</span><span data-lang="en">Custom Packaging</span></h3>
+        <p><span data-lang="zh" class="lang-active">定制防护包装，避免运输磕碰划伤，同步提供半成品预装配套服务。</span><span data-lang="en">Custom protective packaging to prevent transit damage, plus semi-finished sub-assembly service.</span></p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <h3><span data-lang="zh" class="lang-active">精密管控</span><span data-lang="en">Precision Control</span></h3>
+        <p><span data-lang="zh" class="lang-active">专业检测设备全检微孔、曲面及复杂外形，严格把控精密尺寸公差。</span><span data-lang="en">Full inspection of micro holes, curved surfaces & complex geometries to guarantee tight tolerances.</span></p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">05</div>
+        <h3><span data-lang="zh" class="lang-active">SOP / SIP 管控</span><span data-lang="en">SOP / SIP Control</span></h3>
+        <p><span data-lang="zh" class="lang-active">标准化作业与检验规范，完整检测记录，稳定良率，全程可追溯。</span><span data-lang="en">Standardized production & inspection specs with complete records for yield stability and traceability.</span></p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">06</div>
+        <h3><span data-lang="zh" class="lang-active">7×24 快速响应</span><span data-lang="en">24/7 Rapid Response</span></h3>
+        <p><span data-lang="zh" class="lang-active">全天候线上技术对接，快速出具报价，及时同步处理图纸修改需求。</span><span data-lang="en">Round-the-clock online technical support, instant quotation, timely design revision handling.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROADMAP ===== -->
+<section class="section section-gray" id="roadmap">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag"><span data-lang="zh" class="lang-active">发展规划</span><span data-lang="en">Expansion Plans</span></div>
+      <div class="section-title"><span data-lang="zh" class="lang-active">三步<em>战略</em>路线图</span><span data-lang="en">Three-Phase <em>Strategic</em> Roadmap</span></div>
+    </div>
+    <div class="timeline reveal" style="max-width:700px;margin:0 auto">
+      <div class="timeline-item">
+        <div class="phase">PHASE I · <span data-lang="zh" class="lang-active">基础巩固</span><span data-lang="en">Foundation</span> · Year 1–2</div>
+        <h4><span data-lang="zh" class="lang-active">夯实根基</span><span data-lang="en">Foundation Consolidation</span></h4>
+        <p><span data-lang="zh" class="lang-active">扩充五轴与车铣复合设备，完善铝合金后处理链条，取得 ISO 9001 及医疗资质。稳定汽车、无人机、医疗、自动化零件批量订单。</span><span data-lang="en">Expand 5-axis & turn-milling equipment, complete aluminum surface treatment chain, obtain ISO 9001 & medical certifications. Stabilize bulk orders for automotive, UAV, medical & automation parts.</span></p>
+      </div>
+      <div class="timeline-item">
+        <div class="phase">PHASE II · <span data-lang="zh" class="lang-active">高价值拓展</span><span data-lang="en">High-Value Expansion</span> · Year 3–5</div>
+        <h4><span data-lang="zh" class="lang-active">高价值扩张</span><span data-lang="en">High-Value Expansion</span></h4>
+        <p><span data-lang="zh" class="lang-active">深耕新能源汽车、人形机器人、无人机、高精度医疗零件赛道。部署数字化 ERP 系统，拓展海外直营渠道，高附加值订单占比超 60%。</span><span data-lang="en">Focus on new energy vehicles, humanoid robots, UAVs & high-precision medical parts. Deploy digital ERP, expand overseas channels, lift high-value order share to 60%+.</span></p>
+      </div>
+      <div class="timeline-item">
+        <div class="phase">PHASE III · <span data-lang="zh" class="lang-active">战略引领</span><span data-lang="en">Strategic Leadership</span> · Year 5–10</div>
+        <h4><span data-lang="zh" class="lang-active">战略引领</span><span data-lang="en">Strategic Leadership</span></h4>
+        <p><span data-lang="zh" class="lang-active">建成智能化精密加工工厂，布局海外服务网点，研发新材料加工技术，服务全球新能源、医疗、智能装备头部客户。</span><span data-lang="en">Build intelligent precision machining factory, set up overseas service stations, develop new material technologies, serve top global clients.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag"><span data-lang="zh" class="lang-active">联系我们</span><span data-lang="en">Contact Us</span></div>
+      <div class="section-title"><span data-lang="zh" class="lang-active">把图纸变成<em>精密成品</em></span><span data-lang="en">Turn Your Drawing Into <em>Precision Parts</em></span></div>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-info">
+          <h3><span data-lang="zh" class="lang-active">鸿添益源精密制造</span><span data-lang="en">Hongtian Yiyuan Precision</span></h3>
+          <p class="sub"><span data-lang="zh" class="lang-active">东莞市鸿添益源五轴精密制造有限公司</span><span data-lang="en">Dongguan Hongtian Yiyuan Five-Axis Precision Manufacturing Co., Ltd.</span></p>
+          <div class="contact-row">
+            <span class="icon">📍</span>
+            <span><strong><span data-lang="zh" class="lang-active">地址</span><span data-lang="en">Address</span>：</strong><span data-lang="zh" class="lang-active">广东省东莞市大朗镇沙常二四街1号</span><span data-lang="en">No.1, Shachang 24th Street, Dalang Town, Dongguan, Guangdong, China</span></span>
+          </div>
+          <div class="contact-row">
+            <span class="icon">📧</span>
+            <span><strong>Email：</strong>bhgyz2018@163.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <input type="text" placeholder="公司名称 / Company Name">
+        <input type="text" placeholder="联系人 / Contact Person">
+        <input type="email" placeholder="邮箱 / Email">
+        <textarea rows="4" placeholder="简述加工需求 / Describe your machining requirements（材料 Material、数量 Qty、精度 Tolerance）"></textarea>
+        <button type="submit"><span data-lang="zh" class="lang-active">发送询价</span><span data-lang="en">Send Inquiry</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">鸿添益源<span>·</span>精密制造 <span style="font-weight:400;font-size:0.8rem;margin-left:0.5rem">Hongtian Yiyuan Precision</span></div>
+    <div class="footer-copy">© 2022–2026 Dongguan Hongtian Yiyuan Co., Ltd. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// ===== LANGUAGE TOGGLE =====
+let currentLang = 'zh';
+const langToggle = document.getElementById('langToggle');
+langToggle.addEventListener('click', () => {
+  currentLang = currentLang === 'zh' ? 'en' : 'zh';
+  // Update button styles
+  langToggle.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    btn.classList.toggle('active-lang', btn.dataset.langBtn === currentLang);
+  });
+  // Update all bilingual content
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.classList.toggle('lang-active', el.dataset.lang === currentLang);
+  });
+  // Store preference
+  try { localStorage.setItem('htyy-lang', currentLang); } catch(e) {}
+});
+// Restore preference
+try {
+  const saved = localStorage.getItem('htyy-lang');
+  if (saved === 'en') langToggle.click();
+} catch(e) {}
+
+// ===== NAVIGATION =====
+const nav = document.getElementById('nav');
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+document.querySelectorAll('[data-nav-close]').forEach(btn => {
+  btn.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+// ===== SCROLL REVEAL =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const top = target.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
